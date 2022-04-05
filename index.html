@@ -97,6 +97,20 @@ const popup = new mapboxgl.Popup({ offset: [0, -15] })
           map.getCanvas().style.cursor = "pointer";
         });*/
 
+map.on('mousemove', (event) => {
+  const features = map.queryRenderedFeatures(event.point, {
+    layers: ['local-mayors-export-labels-bsvliy'] // replace with your layer name
+  });
+  // if condition is true
+  if (features.length > 0) {
+    // then do this
+    map.getCanvas().style.cursor = "pointer";
+  } else {
+    // if condition is false, then do this
+    map.getCanvas().style.cursor = "default";
+  }
+});
+
     </script>
   </body>
 </html>
