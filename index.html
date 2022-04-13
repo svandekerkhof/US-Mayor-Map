@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <meta charset='utf-8' />
-    <title>Points on a map</title>
+    <title>US Mayors</title>
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
@@ -57,7 +57,7 @@
         letter-spacing: 0.02em;
         height: auto;
         margin-bottom: 40px;
-        width: 220px;
+        width: 200px;
         border-color: #AC8D1B;
         border-width: 1.5px;
         border-style: double;
@@ -112,6 +112,11 @@
       margin-left: 0px;
       }
 
+    p.pub {
+      font-size: 14px;
+      font-style: italic;
+    }
+
     .mapboxgl-popup-close-button {
       font-size: 20px;
       color: #2F2604;
@@ -122,7 +127,7 @@
   <body>
     <div id='map'></div>
     <div class="header"><p id="logo">CICERO LOGO</p><h2>Mayors of the 350 largest US cities</h2></div>
-    <div class='map-overlay' id='legend'><p>Data comes from Cicero, democracy's database. Learn more on <a href="https://www.cicerodata.com/" target="_blank">cicero.com</a></p><p>Published April 12, 2022</p></div>
+    <div class='map-overlay' id='legend'><p>Data comes from <a href="https://www.cicerodata.com/" target="_blank">Cicero</a>, Democracy's Database.</p><p class='pub'>Published April 12, 2022</p></div>
 
     <script>
     // The value for 'accessToken' begins with 'pk...'
@@ -132,7 +137,7 @@
       // Replace YOUR_STYLE_URL with your style URL.
       style: 'mapbox://styles/svandekerkhof/cl12o68p3004115p6ncm2gurv', 
       center: [-98.6572265625, 40.07807142745009],
-      zoom: 3
+      zoom: 4
     });
 
     // Code from the next step will go here.
