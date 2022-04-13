@@ -14,6 +14,55 @@
         font-family: Effra; 
       }
 
+      h2 {
+        margin: 5px;
+        font-size: 22px;
+        color: #FFFFFF;
+        letter-spacing: 0.02em;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        margin: 10px;
+      }
+
+      .map-overlay {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #fff;
+        margin-right: 20px;
+        font-family: Effra, sans-serif;
+        overflow: auto;
+        border-radius: 3px;
+      }
+
+      .mapboxgl-ctrl-top-right {
+        top: 80px;
+        right: 0;
+      }
+
+      #logo {
+        position: absolute;
+        color: #FFFFFF;
+      }
+
+      #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 20px;
+        letter-spacing: 0.02em;
+        height: auto;
+        margin-bottom: 40px;
+        width: 220px;
+        border-color: #AC8D1B;
+        border-width: 1.5px;
+        border-style: double;
+      }
+
       #map { 
         position: absolute; 
         top: 0; 
@@ -23,15 +72,18 @@
       .header {    
         z-index: 100;
         position: relative;
-        background-color: burlywood;
-        padding: 5px;
-        height: 30px;
+        background-color: #2B313C;
+        padding: 15px;
+        height: 40px;
+        text-align: center;
+
       }
+
       h3.firstname {
         width: auto;
         color: #2F2604;
         letter-spacing: 0.02em;
-        margin-block-start: 1em;
+        margin-block-start: 0.5em;
         margin-block-end: 0em;
       }
 
@@ -56,7 +108,8 @@
       color: #2F2604;
       letter-spacing: 0.02em;
       margin-block-start: 0.2em;
-      margin-block-end: 0.5em
+      margin-block-end: 0.5em;
+      margin-left: 0px;
       }
 
     .mapboxgl-popup-close-button {
@@ -68,7 +121,9 @@
   </head>
   <body>
     <div id='map'></div>
-    <div class="header">Cicero</div>
+    <div class="header"><p id="logo">CICERO LOGO</p><h2>Mayors of the 350 largest US cities</h2></div>
+    <div class='map-overlay' id='legend'><p>Data comes from Cicero, democracy's database. Learn more on <a href="https://www.cicerodata.com/" target="_blank">cicero.com</a></p><p>Published April 12, 2022</p></div>
+
     <script>
     // The value for 'accessToken' begins with 'pk...'
     mapboxgl.accessToken = 'pk.eyJ1Ijoic3ZhbmRla2Vya2hvZiIsImEiOiJjbDBzZWl3aHowMGU2M25taHp3bHVvZnczIn0.XK2qEV15wKR3rTVTkVqSqw'; 
@@ -127,6 +182,8 @@ map.on('mousemove', (event) => {
     map.getCanvas().style.cursor = "default";
   }
 });
+
+map.addControl(new mapboxgl.NavigationControl());
 
     </script>
   </body>
