@@ -19,7 +19,6 @@
         font-size: 22px;
         color: #FFFFFF;
         letter-spacing: 0.02em;
-        align-self: center;
       }
 
       h3 {
@@ -84,13 +83,15 @@
         background-color: #2B313C;
         padding: 15px;
         height: 40px;
-        /*text-align: center;*/
-        display: flex;
-        flex-direction: row;
+        text-align: center;
+
       }
 
       img.logo {
         height: 30px;
+        position: absolute;
+        margin-top: 3px;
+        left:  15px;
       }
 
       h3.firstname {
@@ -193,7 +194,7 @@ map.on('click', (event) => {
 const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3 class='firstname'>${feature.properties.first_name} ${feature.properties.last_name}</h3><p class='city'>Mayor of ${feature.properties.CITY}</p><img class='headshot' src=${feature.properties.photo_orig} onerror="this.style.display='none'">`
+    `<h3 class='firstname'>${feature.properties.first_name} ${feature.properties.last_name}</h3><p class='city'>Mayor of ${feature.properties.CITY}</p><img class='headshot' src="${feature.properties.photo_orig}" onerror="this.style.display='none'">`
   )
   .addTo(map);
 
