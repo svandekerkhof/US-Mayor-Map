@@ -19,6 +19,7 @@
         font-size: 22px;
         color: #FFFFFF;
         letter-spacing: 0.02em;
+        align-self: center;
       }
 
       h3 {
@@ -27,6 +28,10 @@
 
       p {
         margin: 10px;
+      }
+
+      a {
+        color: #4076c6;
       }
 
       .map-overlay {
@@ -38,6 +43,10 @@
         font-family: Effra, sans-serif;
         overflow: auto;
         border-radius: 3px;
+      }
+
+      p.cta {
+        font-weight: bold;
       }
 
       .mapboxgl-ctrl-top-right {
@@ -75,8 +84,13 @@
         background-color: #2B313C;
         padding: 15px;
         height: 40px;
-        text-align: center;
+        /*text-align: center;*/
+        display: flex;
+        flex-direction: row;
+      }
 
+      img.logo {
+        height: 30px;
       }
 
       h3.firstname {
@@ -87,16 +101,23 @@
         margin-block-end: 0em;
       }
 
+      img.headshot {
+        width: 170px;
+        height: 170px;
+        object-fit: cover;
+        object-position: top center;
+        margin-block-start: 0.2em;
+        border-radius: 3px;
+        display: block;
+      }
+
     .mapboxgl-popup-content {
         font-family: Effra;
         border-width: 1px;
         border-style: solid;
         border-color: #AC8D1B;
-        padding: 10px 10px 15px;
-        padding-top: 10px;
-        padding-right: 10px;
-        padding-bottom: 10px;
-        padding-left: 10px;
+        padding: 10px;
+        width: 170px;
       }
 
     .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
@@ -126,8 +147,15 @@
   </head>
   <body>
     <div id='map'></div>
-    <div class="header"><p id="logo">CICERO LOGO</p><h2>Mayors of the 350 largest US cities</h2></div>
-    <div class='map-overlay' id='legend'><p>Data comes from <a href="https://www.cicerodata.com/" target="_blank">Cicero</a>, Democracy's Database.</p><p class='pub'>Published April 12, 2022</p></div>
+    <div class="header">
+      <img class="logo" src="assets/cicero_RGB_darkbg.svg">
+      <h2>Mayors of US cities with a population of 100.000 or more</h2>
+    </div>
+    <div class='map-overlay' id='legend'>
+      <p class='cta'>Try our <a href="https://live.cicerodata.com/" target="_blank">demo tool</a></p>
+      <p>Data comes from <a href="https://www.cicerodata.com/" target="_blank">Cicero</a>, Democracy's Database.</p>
+      <p class='pub'>Last updated April 25, 2022</p>
+    </div>
 
     <script>
     // The value for 'accessToken' begins with 'pk...'
@@ -165,7 +193,7 @@ map.on('click', (event) => {
 const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3 class='firstname'>${feature.properties.first_name} ${feature.properties.last_name}</h3><p class='city'>Mayor of ${feature.properties.CITY}</p>`
+    `<h3 class='firstname'>${feature.properties.first_name} ${feature.properties.last_name}</h3><p class='city'>Mayor of ${feature.properties.CITY}</p><img class='headshot' src=${feature.properties.photo_orig} onerror="this.style.display='none'">`
   )
   .addTo(map);
 
