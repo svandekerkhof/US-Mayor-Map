@@ -153,9 +153,9 @@
       <h2>Mayors of US cities with a population of 100.000 or more</h2>
     </div>
     <div class='map-overlay' id='legend'>
-      <p class='cta'>Find out who represents you using our <a href="https://live.cicerodata.com/" target="_blank">demo tool</a></p>
+      <p class='cta'>See who else represents you using our <a href="https://live.cicerodata.com/" target="_blank">demo tool</a></p>
       <p>Data comes from <a href="https://www.cicerodata.com/" target="_blank">Cicero</a>, Democracy's Database.</p>
-      <p class='pub'>Last updated April 25, 2022</p>
+      <p class='pub'>Last updated June 21, 2022</p>
     </div>
 
     <script>
@@ -196,7 +196,7 @@ map.on('click', (event) => {
 const popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-    `<h3 class='firstname'>${feature.properties.first_name} ${feature.properties.last_name}</h3><p class='city'>Mayor of ${feature.properties.CITY}</p><img class='headshot' src="${feature.properties.photo_orig}" onerror="this.style.display='none'">`
+    `<h3 class='firstname'>${feature.properties.FIRST_NAME} ${feature.properties.LAST_NAME}</h3><p class='city'>Mayor of ${feature.properties.DISTRICT_C}</p><img class='headshot' src="${feature.properties.PHOTO_ORIG}" onerror="this.style.display='none'">`
   )
   .addTo(map);
 
