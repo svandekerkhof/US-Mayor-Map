@@ -150,7 +150,7 @@
     <div id='map'></div>
     <div class="header">
       <a href="https://www.cicerodata.com/" target="_blank"><img class="logo" src="assets/cicero_RGB_darkbg.svg"></a>
-      <h2>Mayors of US cities with a population of 100.000 or more</h2>
+      <h2>Mayors of US cities with a population of 100,000 or more</h2>
     </div>
     <div class='map-overlay' id='legend'>
       <p class='cta'>See who else represents you using our <a href="https://live.cicerodata.com/" target="_blank">demo tool</a></p>
@@ -219,7 +219,12 @@ map.on('mousemove', (event) => {
   }
 });
 
-map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.NavigationControl({
+  showCompass: false
+}));
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+
 
     </script>
   </body>
